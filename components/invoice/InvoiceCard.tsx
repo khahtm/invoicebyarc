@@ -27,7 +27,7 @@ export function InvoiceCard({ invoice }: InvoiceCardProps) {
             <p className="font-mono text-sm text-muted-foreground">
               {invoice.short_code}
             </p>
-            <p className="font-semibold font-mono mt-1">{formatUSDC(invoice.amount)}</p>
+            <p className="font-medium font-mono mt-1">{formatUSDC(invoice.amount)}</p>
             <p className="text-sm text-muted-foreground line-clamp-1 mt-1">
               {invoice.description}
             </p>

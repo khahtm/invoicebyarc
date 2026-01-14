@@ -25,6 +25,7 @@ import { useDeliverableProofs } from '@/hooks/useDeliverableProofs';
 import { DisputePanel } from '@/components/dispute/DisputePanel';
 import { InvoicePdfDownload } from '@/components/invoice/InvoicePdfDownload';
 import { MilestoneProofSubmit } from '@/components/invoice/ProofSubmit';
+import { DecryptedText } from '@/components/ui/decrypted-text';
 
 const statusColors: Record<string, string> = {
   draft: 'bg-gray-500',
@@ -295,7 +296,14 @@ export default function InvoiceDetailPage({
         <h2 className="font-semibold mb-2">Payment Link</h2>
         <div className="flex items-center gap-2">
           <code className="flex-1 bg-background px-3 py-2 rounded text-sm break-all font-mono">
-            {paymentUrl}
+            <DecryptedText
+              text={paymentUrl}
+              animateOn="view"
+              sequential={true}
+              speed={30}
+              revealDirection="start"
+              characters="abcdefghijklmnopqrstuvwxyz0123456789/:."
+            />
           </code>
           <Button variant="outline" size="icon" onClick={handleCopyLink}>
             {copied ? (
@@ -320,7 +328,7 @@ export default function InvoiceDetailPage({
         <div className="grid grid-cols-2 gap-4">
           <div>
             <p className="text-sm text-muted-foreground">Amount</p>
-            <p className="text-2xl font-bold font-mono">{formatUSDC(invoice.amount)}</p>
+            <p className="text-2xl font-medium font-mono">{formatUSDC(invoice.amount)}</p>
           </div>
           <div>
             <p className="text-sm text-muted-foreground">Payment Type</p>

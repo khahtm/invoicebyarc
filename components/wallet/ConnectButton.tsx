@@ -133,7 +133,7 @@ export function ConnectButton() {
           {/* Balance display */}
           <div className="px-2 py-2 text-center">
             <p className="text-xs text-muted-foreground">USDC Balance</p>
-            <p className="text-lg font-semibold font-mono">{formattedBalance}</p>
+            <p className="text-lg font-medium font-mono">{formattedBalance}</p>
           </div>
           <DropdownMenuSeparator />
           {/* Address with copy */}

@@ -5,6 +5,7 @@ import { useInvoices } from '@/hooks/useInvoices';
 import { InvoiceCard } from '@/components/invoice/InvoiceCard';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
+import { PrismButton } from '@/components/ui/prism-button';
 import Link from 'next/link';
 import { FileText, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -51,7 +52,7 @@ export default function InvoicesPage() {
           Create your first invoice to get started
         </p>
         <Link href="/invoices/new">
-          <Button className="mt-4">Create Invoice</Button>
+          <PrismButton className="mt-4">Create Invoice</PrismButton>
         </Link>
       </div>
     );

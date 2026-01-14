@@ -414,7 +414,7 @@ function StatCard({
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-4">
       <p className="text-sm text-gray-500 mb-1">{label}</p>
-      <p className="text-2xl font-bold text-gray-900 font-mono">{value}</p>
+      <p className="text-2xl font-medium text-gray-900 font-mono">{value}</p>
       <p
         className={`text-xs mt-1 ${positive ? 'text-gray-900' : 'text-gray-500'}`}
       >
@@ -454,7 +454,7 @@ function InvoiceRow({
         </div>
       </div>
       <div className="flex items-center gap-4">
-        <p className="font-semibold text-gray-900 font-mono">{amount}</p>
+        <p className="font-medium text-gray-900 font-mono">{amount}</p>
         <span
           className={`px-2 py-1 rounded-full text-xs font-medium ${statusColors[status]}`}
         >

@@ -310,7 +310,7 @@ export default function PaymentPage({
 
         {/* Amount */}
         <div className="text-center py-8 border-y">
-          <p className="text-4xl font-bold font-mono">{formatUSDC(invoice.amount)}</p>
+          <p className="text-4xl font-medium font-mono">{formatUSDC(invoice.amount)}</p>
           <p className="text-muted-foreground mt-1">USDC on Arc</p>
         </div>
 

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import { PrismButton } from '@/components/ui/prism-button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { StatCard } from '@/components/common/StatCard';
 import { InvoiceCard } from '@/components/invoice/InvoiceCard';
@@ -48,10 +48,10 @@ export default function DashboardPage() {
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold">Dashboard</h1>
         <Link href="/invoices/new" className="hidden md:block">
-          <Button>
-            <Plus className="mr-2 h-4 w-4" />
+          <PrismButton>
+            <Plus className="h-4 w-4" />
             Create Invoice
-          </Button>
+          </PrismButton>
         </Link>
       </div>
 

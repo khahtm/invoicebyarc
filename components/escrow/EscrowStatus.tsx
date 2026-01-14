@@ -79,14 +79,14 @@ export function EscrowStatus({
 
       <div>
         <p className="text-sm text-muted-foreground">Total Amount</p>
-        <p className="font-semibold font-mono">{formatUSDC(parseFloat(amount))}</p>
+        <p className="font-medium font-mono">{formatUSDC(parseFloat(amount))}</p>
       </div>
 
       {/* V3/V4: Show funded progress */}
       {(isV3 || isV4) && (
         <div>
           <p className="text-sm text-muted-foreground">Funded</p>
-          <p className="font-semibold font-mono">
+          <p className="font-medium font-mono">
             {formatUSDC(parseFloat(fundedAmount))} / {formatUSDC(parseFloat(amount))}
           </p>
         </div>
