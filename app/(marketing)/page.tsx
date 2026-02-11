@@ -89,9 +89,9 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
           <div className="text-center max-w-4xl mx-auto">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 mb-8">
-              <span className="text-black text-sm">✦</span>
-              <span className="text-sm font-medium text-gray-700">
+            <div className="inline-flex items-center gap-2 bg-white backdrop-blur-sm border border-gray-200 rounded-full px-6 py-3 mb-8">
+              <span className="text-black text-lg">✦</span>
+              <span className="text-base md:text-lg font-semibold text-gray-700">
                 EasyA Consensus Hong Kong Hackathon Version
               </span>
             </div>
