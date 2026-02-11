@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { TrueFocus } from '@/components/ui/true-focus';
 import { GlareHover } from '@/components/ui/glare-hover';
+import { TiltCard } from '@/components/ui/tilt-card';
 import {
   ArrowRight,
   Shield,
@@ -88,13 +89,19 @@ export default function HomePage() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-32">
           <div className="text-center max-w-4xl mx-auto">
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 bg-white backdrop-blur-sm border border-gray-200 rounded-full px-6 py-3 mb-8">
-              <span className="text-black text-lg">✦</span>
-              <span className="text-base md:text-lg font-semibold text-gray-700">
-                EasyA Consensus Hong Kong Hackathon Version
-              </span>
-            </div>
+            {/* Badge — 3D tilt holographic card */}
+            <TiltCard
+              className="mb-8"
+              glowColor="rgba(168, 130, 255, 0.6)"
+              innerGradient="linear-gradient(145deg, #1a1030 0%, #0f1a2e 50%, #0a0f1a 100%)"
+            >
+              <div className="flex items-center gap-3 px-8 py-5">
+                <span className="text-xl">✦</span>
+                <span className="text-base md:text-lg font-semibold text-white/90 whitespace-nowrap">
+                  EasyA Consensus Hong Kong Hackathon Version
+                </span>
+              </div>
+            </TiltCard>
 
             {/* Headline */}
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black leading-tight mb-6">

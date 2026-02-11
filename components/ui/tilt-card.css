@@ -1,0 +1,186 @@
+/* TiltCard — 3D tilt + holographic shine effect */
+/* Adapted from reactbits.dev ProfileCard */
+
+.tc-wrap {
+  --pointer-x: 50%;
+  --pointer-y: 50%;
+  --pointer-from-center: 0;
+  --pointer-from-top: 0.5;
+  --pointer-from-left: 0.5;
+  --tc-opacity: 0;
+  --rotate-x: 0deg;
+  --rotate-y: 0deg;
+  --background-x: 50%;
+  --background-y: 50%;
+  --tc-glow-color: rgba(125, 190, 255, 0.67);
+  --tc-inner-gradient: linear-gradient(145deg, #60496e8c 0%, #71C4FF44 100%);
+  --tc-radius: 24px;
+  --sunpillar-1: hsl(2, 100%, 73%);
+  --sunpillar-2: hsl(53, 100%, 69%);
+  --sunpillar-3: hsl(93, 100%, 69%);
+  --sunpillar-4: hsl(176, 100%, 76%);
+  --sunpillar-5: hsl(228, 100%, 74%);
+  --sunpillar-6: hsl(283, 100%, 73%);
+  perspective: 500px;
+  transform: translate3d(0, 0, 0.1px);
+  position: relative;
+  display: inline-block;
+}
+
+/* Glow behind card */
+.tc-behind {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    var(--tc-glow-color) 0%,
+    transparent 50%
+  );
+  filter: blur(50px) saturate(1.1);
+  opacity: calc(0.8 * var(--tc-opacity));
+  transition: opacity 200ms ease;
+}
+
+.tc-wrap:hover,
+.tc-wrap:has(.tc-active) {
+  --tc-opacity: 1;
+}
+
+.tc-shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* Main card surface */
+.tc-card {
+  display: grid;
+  border-radius: var(--tc-radius);
+  position: relative;
+  box-shadow: rgba(0, 0, 0, 0.6) calc((var(--pointer-from-left) * 8px) - 3px)
+    calc((var(--pointer-from-top) * 14px) - 4px) 16px -4px;
+  transition: transform 1s ease;
+  transform: translateZ(0) rotateX(0deg) rotateY(0deg);
+  background: rgba(0, 0, 0, 0.85);
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.tc-card:hover,
+.tc-active .tc-card {
+  transition: none;
+  transform: translateZ(0) rotateX(var(--rotate-y)) rotateY(var(--rotate-x));
+}
+
+.tc-entering .tc-card {
+  transition: transform 180ms ease-out;
+}
+
+.tc-card > * {
+  display: grid;
+  grid-area: 1 / -1;
+  border-radius: var(--tc-radius);
+  pointer-events: none;
+}
+
+/* Inner background */
+.tc-inside {
+  inset: 0;
+  position: relative;
+  display: grid;
+  background-image: var(--tc-inner-gradient);
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: var(--tc-radius);
+}
+
+.tc-inside > * {
+  grid-area: 1 / -1;
+  border-radius: var(--tc-radius);
+}
+
+/* Holographic shine layer */
+.tc-shine {
+  transition: filter 0.8s ease;
+  filter: brightness(0.66) contrast(1.33) saturate(0.33) opacity(0.5);
+  animation: tc-holo 18s linear infinite;
+  mix-blend-mode: color-dodge;
+  z-index: 3;
+  overflow: hidden;
+  transform: translate3d(0, 0, 1px);
+  --space: 5%;
+  --angle: -45deg;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      var(--sunpillar-1) calc(var(--space) * 1),
+      var(--sunpillar-2) calc(var(--space) * 2),
+      var(--sunpillar-3) calc(var(--space) * 3),
+      var(--sunpillar-4) calc(var(--space) * 4),
+      var(--sunpillar-5) calc(var(--space) * 5),
+      var(--sunpillar-6) calc(var(--space) * 6),
+      var(--sunpillar-1) calc(var(--space) * 7)
+    ),
+    repeating-linear-gradient(
+      var(--angle),
+      #0e152e 0%,
+      hsl(180, 10%, 60%) 3.8%,
+      hsl(180, 29%, 66%) 4.5%,
+      hsl(180, 10%, 60%) 5.2%,
+      #0e152e 10%,
+      #0e152e 12%
+    ),
+    radial-gradient(
+      farthest-corner circle at var(--pointer-x) var(--pointer-y),
+      hsla(0, 0%, 0%, 0.1) 12%,
+      hsla(0, 0%, 0%, 0.15) 20%,
+      hsla(0, 0%, 0%, 0.25) 120%
+    );
+  background-position:
+    0 var(--background-y),
+    var(--background-x) var(--background-y),
+    center;
+  background-blend-mode: color, hard-light;
+  background-size: 500% 500%, 300% 300%, 200% 200%;
+}
+
+.tc-active .tc-shine,
+.tc-card:hover .tc-shine {
+  filter: brightness(0.85) contrast(1.5) saturate(0.5);
+  animation-play-state: paused;
+}
+
+/* Glare overlay */
+.tc-glare {
+  transform: translate3d(0, 0, 1.1px);
+  overflow: hidden;
+  background-image: radial-gradient(
+    farthest-corner circle at var(--pointer-x) var(--pointer-y),
+    hsl(248, 25%, 80%) 12%,
+    hsla(207, 40%, 30%, 0.8) 90%
+  );
+  mix-blend-mode: overlay;
+  filter: brightness(0.8) contrast(1.2);
+  z-index: 4;
+}
+
+/* Content layer sits on top */
+.tc-content {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto;
+  transform: translate3d(
+    calc(var(--pointer-from-left) * -4px + 2px),
+    calc(var(--pointer-from-top) * -4px + 2px),
+    0.1px
+  );
+}
+
+@keyframes tc-holo {
+  0% {
+    background-position: 0 var(--background-y), 0 0, center;
+  }
+  100% {
+    background-position: 0 var(--background-y), 90% 90%, center;
+  }
+}
