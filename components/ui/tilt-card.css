@@ -15,12 +15,12 @@
   --tc-glow-color: rgba(125, 190, 255, 0.67);
   --tc-inner-gradient: linear-gradient(145deg, #60496e8c 0%, #71C4FF44 100%);
   --tc-radius: 24px;
-  --sunpillar-1: hsl(2, 100%, 73%);
-  --sunpillar-2: hsl(53, 100%, 69%);
-  --sunpillar-3: hsl(93, 100%, 69%);
-  --sunpillar-4: hsl(176, 100%, 76%);
-  --sunpillar-5: hsl(228, 100%, 74%);
-  --sunpillar-6: hsl(283, 100%, 73%);
+  --sunpillar-1: hsl(5, 90%, 55%);
+  --sunpillar-2: hsl(0, 100%, 85%);
+  --sunpillar-3: hsl(350, 85%, 60%);
+  --sunpillar-4: hsl(0, 0%, 95%);
+  --sunpillar-5: hsl(10, 95%, 50%);
+  --sunpillar-6: hsl(355, 80%, 70%);
   perspective: 500px;
   transform: translate3d(0, 0, 0.1px);
   position: relative;

@@ -92,12 +92,12 @@ export default function HomePage() {
             {/* Badge — 3D tilt holographic card */}
             <TiltCard
               className="mb-8"
-              glowColor="rgba(168, 130, 255, 0.6)"
-              innerGradient="linear-gradient(145deg, #1a1030 0%, #0f1a2e 50%, #0a0f1a 100%)"
+              glowColor="rgba(222, 41, 16, 0.6)"
+              innerGradient="linear-gradient(145deg, #8b1a1a 0%, #de2910 50%, #6b0f0f 100%)"
             >
               <div className="flex items-center gap-3 px-8 py-5">
-                <span className="text-xl">✦</span>
-                <span className="text-base md:text-lg font-semibold text-white/90 whitespace-nowrap">
+                <span className="text-xl text-white">✦</span>
+                <span className="text-base md:text-lg font-semibold text-white whitespace-nowrap">
                   EasyA Consensus Hong Kong Hackathon Version
                 </span>
               </div>
