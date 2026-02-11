@@ -14,7 +14,7 @@
   --background-y: 50%;
   --tc-glow-color: rgba(125, 190, 255, 0.67);
   --tc-inner-gradient: linear-gradient(145deg, #60496e8c 0%, #71C4FF44 100%);
-  --tc-radius: 24px;
+  --tc-radius: 0px;
   --sunpillar-1: hsl(5, 90%, 55%);
   --sunpillar-2: hsl(0, 100%, 85%);
   --sunpillar-3: hsl(350, 85%, 60%);
