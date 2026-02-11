@@ -92,7 +92,7 @@ export default function HomePage() {
             <div className="inline-flex items-center gap-2 bg-white backdrop-blur-sm border border-gray-200 rounded-full px-4 py-2 mb-8">
               <span className="text-black text-sm">✦</span>
               <span className="text-sm font-medium text-gray-700">
-                Powered by Circle&apos;s Arc Blockchain
+                EasyA Consensus Hong Kong Hackathon Version
               </span>
             </div>
 
